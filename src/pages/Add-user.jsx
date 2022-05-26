@@ -74,7 +74,7 @@ const AddUser = () => {
         setSuccess("");
       }, 3000);
     }
-  }, [success, errorResponse, animateError, animateSuccess, navigate]);
+  }, [success, errorResponse]);
 
   const INITIAL_FORM_STATE = {
     title: "",
