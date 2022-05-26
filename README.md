@@ -1,4 +1,4 @@
-## Stacked Used
+## Stack Used
 Tailwind Css\
 Material UI\
 Formik\
