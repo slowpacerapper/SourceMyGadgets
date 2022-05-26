@@ -4,7 +4,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
+You need to first clone the repository into your local hardware before proceeding to the other instructions below.
+
 In the project directory, you can run:
+
+### `npm install` OR ### `yarn install`
+To install all the necessary dependencies or you could open the package.json file to manually install the dependencies.\
 
 ### `npm start`
 
@@ -13,11 +18,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm run build`
 
