@@ -13,6 +13,7 @@ import countries from "../components/FormUI/SelectComponent/countries.json";
 import axios from "axios";
 import styled from "@emotion/styled";
 import { idKey } from "../useFetch";
+import { useNavigate } from "react-router-dom";
 
 // I decided not to add much comments here because the code is self explanatory
 
@@ -26,6 +27,9 @@ const AddUser = () => {
   const [success, setSuccess] = useState("");
   const [animateError, setAnimateError] = useState(false);
   const [animateSuccess, setAnimateSuccess] = useState(false);
+  const [fileName, setFileName] = useState("");
+
+  const navigate = useNavigate();
 
   const createUser = (userValues) => {
     axios
@@ -50,6 +54,7 @@ const AddUser = () => {
           setErrorResponse(errorMessage[Object.keys(errorMessage).toString()]);
         }
       });
+    setFileName("");
   };
 
   useEffect(() => {
@@ -65,10 +70,11 @@ const AddUser = () => {
       setAnimateSuccess(!animateSuccess);
       setTimeout(() => {
         setAnimateSuccess(false);
+        navigate("/");
         setSuccess("");
-      }, 5000);
+      }, 3000);
     }
-  }, [success, errorResponse]);
+  }, [success, errorResponse, animateError, animateSuccess, navigate]);
 
   const INITIAL_FORM_STATE = {
     title: "",
@@ -101,7 +107,6 @@ const AddUser = () => {
     city: Yup.string().required("Required"),
     state: Yup.string().required("Required"),
     country: Yup.string().required("Required"),
-    picture: Yup.string(),
   });
 
   const animateMessage = {
@@ -208,13 +213,16 @@ const AddUser = () => {
               </div>
 
               <div className="flex flex-col gap-2 w-full mt-4">
-                <label htmlFor="contained-button-file">
+                <label className="flex gap-4" htmlFor="contained-button-file">
                   <Input
                     accept="image/*"
                     id="contained-button-file"
                     multiple
                     type="file"
-                    name="picture"
+                    onChange={(e) => {
+                      const { files } = e.target;
+                      setFileName(files[0].name);
+                    }}
                   />
                   <Button
                     sx={{ height: "3.5rem" }}
@@ -224,6 +232,12 @@ const AddUser = () => {
                   >
                     Upload
                   </Button>
+                  <Textfield
+                    name="picture"
+                    label="Picture"
+                    value={fileName}
+                    disabled
+                  />
                 </label>
               </div>
 
