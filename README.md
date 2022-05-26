@@ -1,7 +1,7 @@
 ## Stacked Used
-Tailwind Css
-Material UI
-Formik
+Tailwind Css\
+Material UI\
+Formik\
 Yup
 
 ## Available Scripts
