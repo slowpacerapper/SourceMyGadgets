@@ -8,7 +8,7 @@ You need to first clone the repository into your local hardware before proceedin
 
 In the project directory, you can run:
 
-### `npm install` OR ### `yarn install`
+### `npm install` OR `yarn install`
 To install all the necessary dependencies or you could open the package.json file to manually install the dependencies.\
 
 ### `npm start`
