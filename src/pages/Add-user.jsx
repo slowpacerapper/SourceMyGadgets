@@ -11,16 +11,10 @@ import titleOptions from "../components/FormUI/SelectComponent/titleOptions.json
 import genderOptions from "../components/FormUI/SelectComponent/genderOptions.json";
 import countries from "../components/FormUI/SelectComponent/countries.json";
 import axios from "axios";
-import styled from "@emotion/styled";
 import { idKey } from "../useFetch";
 import { useNavigate } from "react-router-dom";
 
 // I decided not to add much comments here because the code is self explanatory
-
-// This is to hide the native input element
-const Input = styled("input")({
-  display: "none",
-});
 
 const AddUser = () => {
   const [errorResponse, setErrorResponse] = useState("");
