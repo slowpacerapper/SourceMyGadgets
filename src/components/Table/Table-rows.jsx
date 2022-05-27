@@ -68,11 +68,19 @@ const TableRows = ({ handleOnePost, handleId, data, setDisplayState }) => {
       )}
       <td className="py-4">
         <div className="flex items-center gap-1">
-          <img
-            className="h-12 w-12 rounded-full object-cover shadow-md "
-            src={data.picture || data.owner.picture}
-            alt="Test"
-          />
+          {data?.picture || data?.owner?.picture ? (
+            <img
+              className="h-12 w-12 rounded-full object-cover shadow-md "
+              src={data?.picture || data?.owner?.picture}
+              alt="Test"
+            />
+          ) : (
+            <div className="flex items-center justify-center h-12 w-12 rounded-full bg-violet-400 object-cover shadow-md ">
+              <h1 className="text-white font-bold text-xl">
+                {data.lastName.substr(0, 1)}
+              </h1>
+            </div>
+          )}
           <div className="flex flex-col">
             <h1 className="text-violet-400">
               {/* To conditionally display the firstname based on whether we are on the user page or the post page */}

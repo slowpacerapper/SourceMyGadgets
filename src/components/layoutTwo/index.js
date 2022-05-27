@@ -39,7 +39,7 @@ const LayoutTwo = ({ children }) => {
     tpost && dispatch(postTotal(tpost.total));
     tcomment && dispatch(commentTotal(tcomment.total));
     ttag && dispatch(tagTotal(ttag.data.length));
-  }, [tusers]);
+  }, [tusers, tcomment]);
 
   return (
     <div className="h-screen flex mx-auto w-[90rem] overflow-hidden bg-gray-50">

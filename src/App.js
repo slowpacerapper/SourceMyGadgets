@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Posts from "./pages/Posts";
 import AdminSearchPage from "./pages/Admin-page";
 import AddUser from "./pages/Add-user";
+import ViewCreatedUsers from "./pages/Created-Users";
 
 function App() {
   const isPosts =
@@ -44,6 +45,7 @@ function App() {
           }
         />
         <Route path="/Admin-page" element={<AdminSearchPage />} />
+        <Route path="/Created-Users" element={<ViewCreatedUsers />} />
         <Route path="/Add-user" element={<AddUser />} />
       </Routes>
     </BrowserRouter>

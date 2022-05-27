@@ -1,6 +1,6 @@
 import React from "react";
 import { AiFillHome, AiFillSetting } from "react-icons/ai";
-import { FaUserPlus } from "react-icons/fa";
+import { FaUser, FaUserPlus } from "react-icons/fa";
 import { MdSpaceDashboard } from "react-icons/md";
 import { HiDocumentSearch } from "react-icons/hi";
 import Bakare from "../assets/bak4.png";
@@ -47,6 +47,13 @@ const Sidebar = () => {
         >
           <HiDocumentSearch className="text-xl" />
           Search Post
+        </Link>
+        <Link
+          to="/Created-Users"
+          className="hover:bg-violet-300 flex items-center p-3 gap-4"
+        >
+          <FaUser className="text-xl" />
+          Created Users
         </Link>
         <Link
           to="/Add-user"

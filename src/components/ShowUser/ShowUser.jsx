@@ -29,11 +29,19 @@ const ShowUser = ({
       <div className="flex flex-col items-center justify-center w-[22rem] max-h-[40rem] rounded-lg shadow-lg overflow-hidden">
         <div className="w-full p-4">
           <div className="flex gap-4 py-4 border-b-2">
-            <img
-              src={singleUser.picture}
-              alt="Bakare"
-              className="h-[8rem] w-32 object-cover shadow-xl rounded-xl"
-            />
+            {singleUser?.picture ? (
+              <img
+                src={singleUser?.picture}
+                alt="Bakare"
+                className="h-[8rem] w-32 object-cover shadow-xl rounded-xl"
+              />
+            ) : (
+              <div className="flex items-center justify-center bg-violet-400 h-[8rem] w-32 object-cover shadow-xl rounded-xl">
+                <h1 className="text-white font-bold text-xl">
+                  {singleUser.lastName.substr(0, 1)}
+                </h1>
+              </div>
+            )}
 
             {/* For the Full name email and phone no */}
             <div className="flex flex-col gap-2">
@@ -68,19 +76,19 @@ const ShowUser = ({
           />
           <UserDetail
             header={"Street"}
-            information={[singleUser.location.street]}
+            information={[singleUser?.location?.street]}
           />
           <UserDetail
             header={"City"}
-            information={[singleUser.location.city]}
+            information={[singleUser?.location?.city]}
           />
           <UserDetail
             header={"State"}
-            information={[singleUser.location.state]}
+            information={[singleUser.location?.state]}
           />
           <UserDetail
             header={"Country"}
-            information={[singleUser.location.country]}
+            information={[singleUser.location?.country]}
           />
         </div>
 

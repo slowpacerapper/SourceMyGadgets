@@ -1,4 +1,4 @@
-import { Grid, Button } from "@mui/material";
+import { Grid } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import Layout from "../layout";
 import { Formik, Form } from "formik";
@@ -27,7 +27,6 @@ const AddUser = () => {
   const [success, setSuccess] = useState("");
   const [animateError, setAnimateError] = useState(false);
   const [animateSuccess, setAnimateSuccess] = useState(false);
-  const [fileName, setFileName] = useState("");
 
   const navigate = useNavigate();
 
@@ -54,7 +53,6 @@ const AddUser = () => {
           setErrorResponse(errorMessage[Object.keys(errorMessage).toString()]);
         }
       });
-    setFileName("");
   };
 
   useEffect(() => {
@@ -70,7 +68,7 @@ const AddUser = () => {
       setAnimateSuccess(!animateSuccess);
       setTimeout(() => {
         setAnimateSuccess(false);
-        navigate("/");
+        navigate("/Created-Users");
         setSuccess("");
       }, 3000);
     }
@@ -144,7 +142,22 @@ const AddUser = () => {
           initialValues={{ ...INITIAL_FORM_STATE }}
           validationSchema={VALIDATIONS}
           onSubmit={(values) => {
-            createUser(values);
+            const allValues = {
+              title: values.title,
+              firstName: values.firstName,
+              lastName: values.lastName,
+              gender: values.gender,
+              email: values.email,
+              dateOfBirth: values.dateOfBirth,
+              phone: values.phone,
+              location: {
+                street: values.street,
+                city: values.city,
+                state: values.state,
+                country: values.country,
+              },
+            };
+            createUser(allValues);
           }}
         >
           <Form className="w-[70%] mx-auto">
@@ -213,32 +226,8 @@ const AddUser = () => {
               </div>
 
               <div className="flex flex-col gap-2 w-full mt-4">
-                <label className="flex gap-4" htmlFor="contained-button-file">
-                  <Input
-                    accept="image/*"
-                    id="contained-button-file"
-                    multiple
-                    type="file"
-                    onChange={(e) => {
-                      const { files } = e.target;
-                      setFileName(files[0].name);
-                    }}
-                  />
-                  <Button
-                    sx={{ height: "3.5rem" }}
-                    variant="outlined"
-                    fullWidth={true}
-                    component="span"
-                  >
-                    Upload
-                  </Button>
-                  <Textfield
-                    name="picture"
-                    label="Picture"
-                    value={fileName}
-                    disabled
-                  />
-                </label>
+              <span className="font-bold text-md">Picture</span>
+                <Textfield name="picture" label="Picture URL" />
               </div>
 
               <div className="flex flex-col gap-2 w-full mt-4">
