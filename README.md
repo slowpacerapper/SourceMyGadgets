@@ -1,4 +1,5 @@
 ## Stack Used
+React\
 Tailwind Css\
 Material UI\
 Formik\
@@ -6,7 +7,8 @@ Yup
 
 ## Available Scripts
 
-You need to first clone the repository into your local hardware before proceeding to the other instructions below.
+You need to first clone the repository into your local hardware before proceeding to the other instructions below.\
+You can ignore the build folder in the file structure. It is the build folder from `npm run build`.
 
 In the project directory, you can run:
 
